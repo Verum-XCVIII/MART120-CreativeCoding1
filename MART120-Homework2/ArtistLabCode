@@ -1,0 +1,36 @@
+function my_function() {
+  penColour(colour_random());
+  for (var count5 = 0; count5 < 4; count5++) {
+      for (var count4 = 0; count4 < 16; count4++) {
+          turnRight(11.25);
+      moveForward(5);
+      turnLeft(22.5);
+    }
+    turnLeft(90);
+    jumpForward(50);
+  }
+}
+
+penWidth(1);
+jumpBackward(208);
+turnRight(90);
+jumpForward(192);
+turnLeft(90);
+for (var count3 = 0; count3 < 3; count3++) {
+  for (var count = 0; count < 5; count++) {
+      my_function();
+    jumpForward(100);
+  }
+  jumpBackward(100);
+  turnLeft(90);
+  jumpForward(100);
+  turnRight(90);
+  for (var count2 = 0; count2 < 5; count2++) {
+      my_function();
+    jumpBackward(100);
+  }
+  jumpForward(100);
+  turnLeft(90);
+  jumpForward(100);
+  turnRight(90);
+}
