@@ -1,0 +1,188 @@
+
+html,
+html * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  z-index: 0;
+}
+
+header {
+  width: 100%;
+  top: 0;
+  padding: .05em 0em 1.45em 0.5em;
+  position: fixed;
+  height: 5em;
+  height: absolute;
+  z-index: 1000;
+  background: #89cff0;
+}
+
+.site-nav {
+  position: relative;
+  float: right;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 80%;
+  padding: 1.85em 1em .6em 1em;
+  opacity: .94;
+}
+
+.site-nav ul {
+  list-style-type: none;
+  margin: 0em;
+  text-align: right;
+}
+
+.site-nav ul ul {
+  position: absolute;
+  visibility: hidden;
+  display: block;
+}
+
+.site-nav ul li {
+  display: inline-block;
+  margin-bottom: 0em;
+  padding: 0em 1em 0em 1em;
+}
+
+.site-nav ul li a {
+  font-size: 1.1em;
+  padding-bottom: .5em;
+  text-decoration: none;
+  letter-spacing: .1em;
+  text-transform: none;
+  color: #404040;
+}
+
+.site-nav ul li:hover ul {
+  visibility: visible;
+  position: absolute;
+  display: block;
+  padding: 2em .8em .4em .8em;
+  background: #89cff0;
+}
+
+.site-nav ul ul li {
+  font-size: 1em;
+  text-align: center;
+  text-decoration: none;
+  height: 30;
+  width: 150;
+  display: block;
+  font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: # 111111;
+  padding: .5em .1em .5em .5em;
+}
+
+.site-nav li {
+  list-style: none;
+  position: relative;
+}
+
+.site-nav ul li a:hover {
+  outline: none;
+  border-bottom: medium;
+}
+
+.site-nav ul li a ul:hover {
+  outline: none;
+  border-bottom: medium;
+}
+
+footer {
+  padding: 1.15% 0% 1.15% 0%;
+  Background: #444444;
+  text-shadow: 2px 2px #111111;
+  text-align: center;
+  font-size: 1em;
+  color: #999999;
+}
+
+main {
+  margin: 0em 10em 0em 10em;
+  padding: 6em 4em 2em 4em;
+  background-color: #cccccc;
+}
+
+main ul {
+  padding-left: 2em;
+}
+
+main ul li {
+  padding: .4em 0em .4em 0em;
+}
+
+main ol {
+  padding-left: 2em;
+}
+
+main ol li {
+  padding: .4em 0em .4em 0em;
+}
+
+body {
+  font-family: 'arial', 'sans-serif';
+  font-size: 16px;
+  background-color: #888888;
+  position: relative;
+}
+
+.site-logo {
+  display: block;
+  float: left;
+  padding: .01em 0em .01em 0em;
+  position: fixed;
+}
+
+.site-logo img {
+  width: 4.8em;
+  max-width: 4.8em;
+  height: 4.8em;
+  max-height: 4.8em;
+  padding: .02em 0em .02em 0em;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 1.5%;
+  margin-left: .7em;
+  color: #282828;
+  text-shadow: 1px 1px #080808;
+}
+
+h2 {
+  font-size: 2em;
+  margin-bottom: 1.5%;
+  margin-left: .7em;
+  color: #282828;
+  text-shadow: 1px 1px #080808;
+}
+
+h3 {
+  font-size: 1.5em;
+  font-weight: 100;
+  line-height: 2.75;
+  letter-spacing: .35em;
+  text-transform: none;
+  color: #282828;
+  text-shadow: 1px 1px #080808;
+}
+
+textarea {
+  width: 61em;
+  height: 16em;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  resize: none;
+  align-self: center;
+}
+
+.submitButton {
+  display: flex;
+  justify-content: center;
+}
