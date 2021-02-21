@@ -7,17 +7,6 @@ html * {
   z-index: 0;
 }
 
-header {
-  width: 100%;
-  top: 0;
-  padding: .05em 0em 1.45em 0.5em;
-  position: fixed;
-  height: 5em;
-  height: absolute;
-  z-index: 1000;
-  background: #89cff0;
-}
-
 .site-nav {
   position: relative;
   float: right;
@@ -26,8 +15,9 @@ header {
   left: 0;
   display: block;
   width: 80%;
-  padding: 1.85em 1em .6em 1em;
-  opacity: .94;
+  height: 5%;
+  padding: 1.8% .4% .6% 1%;
+  opacity: 96%;
 }
 
 .site-nav ul {
@@ -92,18 +82,32 @@ header {
   border-bottom: medium;
 }
 
-footer {
-  padding: 1.15% 0% 1.15% 0%;
-  Background: #444444;
-  text-shadow: 2px 2px #111111;
-  text-align: center;
-  font-size: 1em;
-  color: #999999;
+header {
+  width: 100%;
+  top: 0;
+  padding: .05em 0em 1.45em 0.5em;
+  position: fixed;
+  height: 10%;
+  height: absolute;
+  z-index: 1000;
+  background: #89cff0;
+  opacity: 98%;
+}
+
+body {
+  font-family: arial, sans-serif;
+  font-size: 16px;
+  background-color: #888888;
+  position: relative;
+  background-image: url('images/RepeatingKLogo-Solid.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 main {
-  margin: 0em 10em 0em 10em;
-  padding: 6em 4em 2em 4em;
+  margin: 5.2% 12% 0% 12%;
+  padding: 2em 4em 2em 4em;
   background-color: #cccccc;
 }
 
@@ -123,57 +127,59 @@ main ol li {
   padding: .4em 0em .4em 0em;
 }
 
-body {
-  font-family: 'arial', 'sans-serif';
-  font-size: 16px;
-  background-color: #888888;
-  position: relative;
-}
-
-.site-logo {
-  display: block;
-  float: left;
-  padding: .01em 0em .01em 0em;
-  position: fixed;
+footer {
+  padding: 1.15% 0% 1.15% 0%;
+  Background: #444444;
+  text-shadow: 2px 2px #111111;
+  text-align: center;
+  font-size: 1em;
+  color: #999999;
 }
 
 .site-logo img {
-  width: 4.8em;
-  max-width: 4.8em;
-  height: 4.8em;
-  max-height: 4.8em;
-  padding: .02em 0em .02em 0em;
+  display: block;
+  float: left;
+  height: 9.8%;
+  max-height: 9.8%;
+  padding: .08% 0% 0% 0%;
+  position: fixed;
+}
+
+.artSection img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  float: center;
+  border: .4em solid #222222;
+  width: 74%;
+  height: 74%;
 }
 
 h1 {
   text-align: center;
-  font-size: 2em;
+  font-size: 2.4em;
   margin-bottom: 1.5%;
   margin-left: .7em;
-  color: #282828;
-  text-shadow: 1px 1px #080808;
+  color: #202020;
+  text-shadow: 1.8px 1.4px rgba(50, 50, 50, .84);
 }
 
 h2 {
-  font-size: 2em;
+  font-size: 2.2em;
   margin-bottom: 1.5%;
   margin-left: .7em;
-  color: #282828;
-  text-shadow: 1px 1px #080808;
+  color: #222222;
+  text-shadow: 1.8px 1.4px rgba(48, 48, 48, .82);
 }
 
 h3 {
-  font-size: 1.5em;
-  font-weight: 100;
-  line-height: 2.75;
-  letter-spacing: .35em;
-  text-transform: none;
-  color: #282828;
-  text-shadow: 1px 1px #080808;
+  font-size: 2em;
+  color: #242424;
+  text-shadow: 1.8px 1.4px rgba(46, 46, 46, .8);
 }
 
 textarea {
-  width: 61em;
+  width: 99%;
   height: 16em;
   display: block;
   margin-left: auto;
