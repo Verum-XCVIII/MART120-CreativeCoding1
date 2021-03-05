@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+  <meta name="author" content="Kalen Weinheimer">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Contact Us</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="styles.css">
+	<style> input {margin: .32em 0em .32em 0em;} </style>
+
+	<script>
+		function submitCheck() {
+			if (document.getElementById("fName").value == "") {
+				document.getElementById('fName').style.border = "3.2px solid #ca1806"
+				document.getElementById('fNameLabel').style.color = "#ca1806"
+				document.getElementById('fname').focus();
+			} else {
+				document.getElementById('fName').style.border = "1px solid #222"
+				document.getElementById('fNameLabel').style.color = "#222"
+			}
+
+			if (document.getElementById("lName").value == "") {
+				document.getElementById('lName').style.border = "3.2px solid #ca1806"
+				document.getElementById('lNameLabel').style.color = "#ca1806"
+				document.getElementById('lname').focus();
+			} else {
+				document.getElementById('lName').style.border = "1px solid #222"
+				document.getElementById('lNameLabel').style.color = "#222"
+			}
+
+			if (document.getElementById("userEmail").value == "") {
+				document.getElementById('userEmail').style.border = "3.2px solid #ca1806"
+				document.getElementById('userEmailLabel').style.color = "#ca1806"
+				document.getElementById('userEmail').focus();
+			} else {
+				document.getElementById('userEmail').style.border = "1px solid #222"
+				document.getElementById('userEmailLabel').style.color = "#222"
+			}
+
+			if (document.getElementByName("termsOfAgreement").value == "" || document.getElementByName("termsOfAgreement").value == "deny") {
+				document.getElementByName('termsOfAgreement').style.background = "#ca1806"
+				document.getElementByClass('termsOfAgreementLabel').style.color = "#ca1806"
+				document.getElementByName('termsOfAgreement').focus();
+			} else { //I'm not sure why this one doesn't work for changing the Label's color, I tried referencing both the class and the id.
+				document.getElementByName('termsOfAgreement').style.background = "#222"
+				document.getElementByClass('termsOfAgreementLabel').style.color = "#222"
+			}
+		}
+	</script>
+</head>
+
+<body>
+<!-- Header -->
+  <header>
+    <a class="site-logo"><img src="images/KLogo.png" alt="K-Logo" /></a>
+    <nav class="site-nav">
+      <ul>
+        <li><a>Page Links</a>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="page2.html">Story & Art</a></li>
+            <li><a href="page3.html">Contact Us</a></li>
+						<li><a href="page4.html">Math Game</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+<!-- Main Content -->
+  <main>
+    <h1 style="padding-top: .4em">Contact Us</h1>
+    <hr /> <br />
+    <form method="Post" action="">
+      <label for="fName" id="fNameLabel">First Name: </label> <input type="text" name="fName" id="fName" required /> <br />
+			<label for="lName" id="lNameLabel">Last Name: </label> <input type="text" name="lName" id="lName" required /> <br /> <br /> <br />
+      <label for="userEmail" id="userEmailLabel">EMail Address: </label> <input type="text" name="userEmail" id="userEmail" required /> <br /> <br />
+      Email: <br /> <textarea></textarea> <br />
+      <input type="radio" name="termsOfAgreement" class="termsOfAgreement" id="termsOfAgreementAccept" value="accept" required />
+				<label for="termsOfAgreementAccept" class="termsOfAgreementLabel" id="termsOfAgreementAcceptLabel">- I accept the terms of agreement.</label> <br />
+      <input type="radio" name="termsOfAgreement" id="termsOfAgreementDeny" value="deny" required />
+				<label for="termsOfAgreementDeny" class="termsOfAgreementLabel" id="termsOfAgreementDenyLabel">- I do not accept the terms of agreement.</label> <br />
+      <button type="submit" id="emailSubmit" onClick="submitCheck();" style="padding: .02em .32em .02em .32em">Submit</button>
+    </form>
+  </main>
+
+<!-- Footer -->
+  <footer>
+    Kalen Weinheimer - 2021
+  </footer>
+
+</body>
+</html>

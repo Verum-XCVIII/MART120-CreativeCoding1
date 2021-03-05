@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta name="author" content="Kalen Weinheimer">
+  <meta name="description" content="JavaScript Testing">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>JavaScript Testing</title>
+<!--
+  <script>
+  //  window.alert("Hello, this is a test sentence, meant for testing purposes only.");
+    document.write("Hello, this is a test sentence, meant for testing purposes only.");
+
+    var favoriteColor = "black";
+    function displayFavoriteColor(color) {
+      var favoriteColor = color;
+      document.getElementById("testPId2").innerHTML = "Favorite Color = " + favoriteColor;
+    }
+
+  //Form Script Section
+    function getData() {
+      var name = document.getElementById("txtName").value;
+      var phone = document.getElementById("txtPhone").value;
+      document.getElementById("finalResult").innerHTML = "name: " + name + " phone: " + phone;
+      //window.alert("name: " + name + " phone: " + phone);
+    }
+
+  </script>
+-->
+<script>
+  var tAnswer;
+  var num1;
+  var num2;
+
+  function printQuestion() {
+    num1 = Math.floor(Math.random() * 10);
+    num2 = Math.floor(Math.random() * 10);
+    tAnswer = num1 + num2;
+    document.getElementById("theQuestion").innerHTML = "What is " + num1 + "+" + num2 + "?";
+  }
+
+  function checkAnswer() {
+    var answer = document.getElementById("userAnswer").value;
+    if (answer == tAnswer) {
+      document.getElementById("finalResult").innerHTML = "Good job!";
+      printQuestion();
+    } else {
+      document.getElementById("finalResult").innerHTML = "Try again!";
+    }
+  }
+
+  function runGame() {
+    for (var i = 1; i < 6; i++) {
+      document.getElementById("message").innerHTML += "<h" + i + ">Welcome to our game!</h" + i + ">";
+    }
+    printQuestion();
+  }
+</script>
+
+</head>
+<!--
+<body onload="displayFavoriteColor('baby blue');">
+  <h1>Test Header</h1>
+  <p id="testPId">Tests testing.</p>
+  <p id="testPId2">Testing Tests.</p>
+
+  <br /><br /><hr /><br /><br />
+  <h1>Form Section</h1>
+  <table>
+    <tr>
+      <td>Name</td>
+      <td><input type="text" id="txtName"></td>
+    </tr>
+    <tr>
+      <td>Phone Number</td>
+      <td><input type="text" id="txtPhone"></td>
+    </tr>
+    <tr>
+      <td colspan="2"><button id="btnSubmit" onClick="getData();">Submit</button></td>
+    </tr>
+  </table>
+  <div id="finalResult"></div>
+</body>
+-->
+<body onload="runGame();">
+  <table>
+    <tr>
+      <td colspan="2"><div id="message"></div></td>
+    </tr>
+    <tr>
+      <td colspan="2"><hr size="1" /></td>
+    </tr>
+    <tr>
+      <td colspan="2"><div id="theQuestion"></div></td>
+    </tr>
+    <tr>
+      <td>Your Answer:</td>
+      <td><input type="text" id="userAnswer"></td>
+    </tr>
+    <tr>
+      <td colspan="2"><button id="btnSubmit" onClick="checkAnswer();">Submit</button></td>
+    </tr>
+  </table>
+  <div id="finalResult"></div>
+</body>
+<!--
+<script>
+  document.getElementById("testPId").innerHTML = "New test text.";
+</script>
+-->
+</html>
