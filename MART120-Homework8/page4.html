@@ -11,19 +11,39 @@
   <style>
     #btnSubmit {
       font-size: .8em;
-      margin: 0;
-      display: block;
-      position: absolute;
-      top: 91%;
-      left: 50%;
-      -ms-transform: translate(-50%, -50%);
-      transform: translate(-50%, -50%);
+      margin-top: .52em;
       padding: .1em 10em .1em 10em;
       background-color: #bbb;
     }
+
     span {
       text-decoration: underline;
     }
+
+    .gameContainer {
+      margin: 4.6em auto 0 auto;
+      font-size: 1.9em;
+      padding: .4em .6em .4em .6em;
+      background-color: #bbb;
+      text-align: center;
+      width: 74%;
+    }
+
+    #finalResult {
+      display: none;
+      width: 25.6em;
+      float: left;
+      margin: 1.4em 0 0 16em;
+      padding: .8em .8em .8em .8em;
+      background: #a2a2a8;
+    }
+
+    #finalResult tr td {
+      width: 12em;
+      text-align: center;
+      padding: .4em 0 .4em 0;
+    }
+
   </style>
 
   <script>
@@ -32,32 +52,49 @@
     var num2;
     var correctAnswers = 0;
     var incorrectAnswers = 0;
+    var currentQuestion;
+    var gameEnd = false;
+    let incorrectQuestionsLog = [];
+    let incorrectAnswersLog = [];
+
 
     function printQuestion() {
       num1 = Math.floor(Math.random() * 10);
       num2 = Math.floor(Math.random() * 10);
       tAnswer = num1 + num2;
       document.getElementById("theQuestion").innerHTML = "What is " + num1 + "+" + num2 + "?<br /><br />";
+      currentQuestion = document.getElementById("theQuestion").textContent;
     }
+
+    //function logQuestion() {
+      //currentQuestion = document.getElementById("theQuestion").textContent;
+      //window.alert(currentQuestion);
+    //}
 
     function checkAnswer() {
       if (correctAnswers + incorrectAnswers < 10) {
         if (document.getElementById("userAnswer").value == tAnswer) {
-          correctAnswers += 1
+          correctAnswers += 1;
           //document.getElementById("finalResult").innerHTML = "Good job!";
         } else {
-          incorrectAnswers += 1
+          incorrectAnswers += 1;
+          incorrectQuestionsLog.push(currentQuestion);
+          incorrectAnswersLog.push(document.getElementById("userAnswer").value);
           //document.getElementById("finalResult").innerHTML = "Try again!";
         }
       }
-
       if (correctAnswers + incorrectAnswers < 10) {
+        //logQuestion();
         printQuestion();
-        document.getElementById("userAnswer").value = ""
+        document.getElementById("userAnswer").value = "";
         document.getElementById("userAnswer").focus();
-      } else {
-        document.getElementById("message").innerHTML = "You got <b>" + correctAnswers + "</b> <span>correct</span> and <b>" + incorrectAnswers + "</b> <span>incorrect</span>, that's a <b>" + (correctAnswers/(correctAnswers+incorrectAnswers))*100 + "%</b> success rate."
-      } //Note: For some reson adding a class to the spans within this text completly prevented the game from starting.
+      } else if (gameEnd == false) { //Note: For some reson adding a class to the spans within this text completly prevented the game from starting.
+        document.getElementById("message").innerHTML = "You got <b>" + correctAnswers + "</b> <span>correct</span> and <b>" + incorrectAnswers + "</b> <span>incorrect</span>, that's a <b>" + (correctAnswers/(correctAnswers+incorrectAnswers))*100 + "%</b> success rate.";
+        gameEnd = true;
+        if (incorrectQuestionsLog != 0) {
+          printIncorrectQuestions();
+        }
+      }
     }
 
     function runGame() {
@@ -71,6 +108,15 @@
         checkAnswer();
       }
     });
+
+    function printIncorrectQuestions() {
+      for (var i = 0; i < incorrectQuestionsLog.length; i++) {
+        //document.getElementById("finalResult").innerHTML += incorrectQuestionsLog[i] + " - - - - your answer: " + incorrectAnswersLog[i] + "<br /><br />";
+        document.getElementById("resultQuestion" + i).innerHTML = incorrectQuestionsLog[i];
+        document.getElementById("resultAnswer" + i).innerHTML = "Your Answer: " + incorrectAnswersLog[i];
+      }
+      document.getElementById("finalResult").style.display = "block";
+    }
 </script>
 </head>
 
@@ -93,7 +139,7 @@
   </header>
 
 <!--Main Content-->
-  <table style="margin: 4.6em auto 0 auto; font-size: 1.9em; padding: .4em .6em .4em .6em; background-color: #bbb; text-align: center; width: 74%">
+  <table class="gameContainer">
     <tr>
       <td colspan="2"><div id="message"><br /></div></td>
     </tr>
@@ -108,13 +154,26 @@
       <td style="text-align: left"><input type="text" id="userAnswer" style="background-color: #ccc;  width: 6em; text-align: center; font-size: 1em" placeholder="00" maxlength="2" autofocus /></td>
     </tr>
     <tr>
-      <td colspan="2"><br /><hr size="1" /><br /></td>
+      <td colspan="2"><br /><hr size="1" /></td>
     </tr>
     <tr>
-      <td colspan="2"><button id="btnSubmit" onClick="checkAnswer();">Submit</button></td>
+      <td colspan="2" style="text-align: center;"><button id="btnSubmit" onClick="checkAnswer();">Submit</button></td>
     </tr>
   </table>
-  <div id="finalResult"></div>
+
+  <table id="finalResult">
+    <tr><th colspan="2" style="border-bottom: 1px solid #444; padding: .4em 0 .4em 0; margin-bottom: .8em; background: #a2a2a8;">Here are the questions you got wrong:</th></tr>
+    <tr><td id="resultQuestion0"></td> <td id="resultAnswer0"></td></tr>
+    <tr><td id="resultQuestion1"></td> <td id="resultAnswer1"></td></tr>
+    <tr><td id="resultQuestion2"></td> <td id="resultAnswer2"></td></tr>
+    <tr><td id="resultQuestion3"></td> <td id="resultAnswer3"></td></tr>
+    <tr><td id="resultQuestion4"></td> <td id="resultAnswer4"></td></tr>
+    <tr><td id="resultQuestion5"></td> <td id="resultAnswer5"></td></tr>
+    <tr><td id="resultQuestion6"></td> <td id="resultAnswer6"></td></tr>
+    <tr><td id="resultQuestion7"></td> <td id="resultAnswer7"></td></tr>
+    <tr><td id="resultQuestion8"></td> <td id="resultAnswer8"></td></tr>
+    <tr><td id="resultQuestion9"></td> <td id="resultAnswer9"></td></tr>
+  </table>
 
 <!-- Footer -->
 <footer style="position: fixed">
